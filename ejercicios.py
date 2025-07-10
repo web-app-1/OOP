@@ -47,3 +47,34 @@ class Vehiculo:
 
 mi_vehiculo = Vehiculo("Ford", "Negro", 80)
 mi_vehiculo.acelerar(20)
+
+
+class CuentaBancaria:
+
+    banco = "Banco Central"
+
+    def __init__(self,titular, saldo):
+        self.titular = titular
+        self.saldo = saldo
+
+    def depositar(self, cantidad):
+        self.saldo = self.saldo + cantidad
+        print(f'Se depositaron {cantidad}. Saldo actual: {self.saldo}')
+
+    def retirar(self, cantidad):
+        if cantidad > self.saldo:
+            print('Fondos insuficientes')
+        else:
+            self.saldo = self.saldo - cantidad
+            print(f'se retiraron {cantidad}. Sado actual: {self.saldo}')
+            
+    def mostrar_saldo(self):
+        print(f'El saldo de {self.titular} es {self.saldo}')
+
+    
+cuenta1 = CuentaBancaria("Luis", 100)
+
+cuenta1.depositar(5)
+cuenta1.retirar(100)
+cuenta1.mostrar_saldo()
+    
