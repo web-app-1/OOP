@@ -1,3 +1,4 @@
+'''
 class Animal:
 
     tipo_reino = "Animalia"
@@ -77,4 +78,39 @@ cuenta1 = CuentaBancaria("Luis", 100)
 cuenta1.depositar(5)
 cuenta1.retirar(100)
 cuenta1.mostrar_saldo()
-    
+
+'''
+
+class Mascota:
+
+    tipo_vida = 'Animal'
+
+    def __init__(self, nombre, especie, energia):
+        self.nombre = nombre
+        self.especie = especie
+        self.energia = energia
+
+    def jugar(self, tiempo):
+        tiempo_transcurrido = tiempo * 10
+        self.energia = self.energia - tiempo_transcurrido
+        print(f'Despues de Jugar la energia de {self.nombre} es: {self.energia}')
+
+    def comer(self, comida):
+        if comida == "croquetas":
+            self.energia = self.energia + 20
+        elif comida == "hueso":
+            self.energia = self.energia + 10
+        print(f'Despues de comer {comida}, la energia de {self.nombre} es: {self.energia}')
+
+    def mostrar_estado(self):
+        print(f'Soy {self.nombre} un {self.especie} y tengo {self.energia} de energia!')
+
+            
+
+mi_mascota = Mascota('Otto', 'Gato', 100)
+mi_mascota.jugar(1)
+mi_mascota.comer('croquetas')
+mi_mascota.mostrar_estado()
+        
+
+
