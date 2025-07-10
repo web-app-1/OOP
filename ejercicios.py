@@ -79,7 +79,7 @@ cuenta1.depositar(5)
 cuenta1.retirar(100)
 cuenta1.mostrar_saldo()
 
-'''
+
 
 class Mascota:
 
@@ -112,5 +112,5 @@ mi_mascota.jugar(1)
 mi_mascota.comer('croquetas')
 mi_mascota.mostrar_estado()
         
-
+'''
 
