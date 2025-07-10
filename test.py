@@ -12,12 +12,20 @@ mi_laptop = Laptop("Lenovo",1200, "Negro")
 print(mi_laptop.tipo_dispositivo, mi_laptop.color)
 
 class Circle:
-    def __init__(self, radius):
-            self.radio = radius
-            
+    
+    radius = 5
 
-circle1 = Circle(20)
-print(circle1)
+    def __init__(self, color):
+            self.color = color
+            
+my_circle = Circle('Red')
+your_circle = Circle('Black')
+
+Circle.radius = 10
+
+print(my_circle.radius, your_circle.radius)
+
+
 
 
 class Rectangle:
@@ -27,15 +35,24 @@ class Rectangle:
 
 
 class Movie:
-     def __init__(self, title, year, lang, rating):
+
+     id_counter = 1
+
+     def __init__(self, title, rating):
+          self.id = Movie.id_counter
           self.title = title
-          self.year = year
-          self.lang = lang
           self.rating = rating
+          
+
+          Movie.id_counter += 1
+
+my_movie = Movie('The Matrix Revolutions', 4.4)
+your_movie = Movie('Saving Private Ryan', 4.2)
 
 
-favorite_movie = Movie('The Matrix',2000, 'es', 5.0)
-print(favorite_movie.title)
+print(my_movie.id)
+print(your_movie.id)
+
 
 # how to create instances:
 
@@ -43,16 +60,12 @@ class Backpack:
      
     max_num_items = 10
 
-    def __init__(self, color):
+    def __init__(self):
         self.items = []
-        self.color = color
+        
 
-
-my_bag = Backpack("red")
-
-my_bag.color = "blue"
-print(my_bag.color)
-
+my_bag = Backpack()
+your_bag = Backpack()
 
 
 class Circle2:
@@ -109,3 +122,37 @@ class Dog:
         self.name = name
         self.age = age
         self.breed = breed
+
+
+print(Dog.species)
+
+
+class Pizza:
+
+     price = 12.99
+
+     def __init__(self, description, toppings, crust):
+          self.description = description
+          self.toppings = toppings
+          self.crust = crust
+
+my_pizza = Pizza('PizzaCoco', ['Peperoni', 'Jam', 'Meat'], 'Cheese')
+
+Pizza.price = 11.99
+
+print(my_pizza.description, my_pizza.toppings, my_pizza.crust, my_pizza.price)
+
+class MyClass:
+ 
+    x = 5
+ 
+    def __init__(self):
+        MyClass.x += 1
+ 
+ 
+obj1 = MyClass()
+obj2 = MyClass()
+MyClass.x = 26
+obj3 = MyClass()
+ 
+print(MyClass.x) # Output? 27
