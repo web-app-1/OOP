@@ -121,7 +121,7 @@ mi_mascota.jugar(8)
 #mi_mascota.comer('croquetas')
 mi_mascota.mostrar_estado()
 mi_mascota.estado_animo()        
-'''
+
 
 class Producto:
 
@@ -153,6 +153,56 @@ producto1 = Producto('Paila', 5.00, 34)
 producto1.vender(34)
 producto1.reponer(2)
 
+
+class Plato:
+
+    categoria_general = 'comida'
+
+    def __init__(self, nombre, precio, disponible):
+        self.nombre = nombre
+        self.precio = precio
+        self.disponible = disponible
+
+    def mostrar_info(self):
+        disponibilidad = "Sí" if self.disponible else "No"
+        print(f'Plato: {self.nombre}, Precio: {self.precio}, Disponible: {disponibilidad}')
+
+    def cambiar_disponibilidad(self, estado):
+        if estado == True:
+            self.disponible = True
+        else:
+            self.disponible = False
+
+        print(f'Disponibilidad de {self.nombre}, actualizada a: {estado}')
+
+    def ordenar(self):
+        if self.disponible == True:
+            print(f'Orden Recibida: {self.nombre}. Gracias por su pedido')
+        else:
+            print(f'(Lo sentimos, {self.nombre} no esta disponible en este momento)')
+
+plato1 = Plato('patacones', 3.0, True)
+plato1.mostrar_info()
+plato1.ordenar()
+plato1.cambiar_disponibilidad(False)
+plato1.ordenar()
+
+'''
+
+class Auto:
+
+    tipo = 'Vehiculo'
+
+    def __init__(self, marca, modelo, combustible):
+        self.marca = marca
+        self.modelo = modelo
+        self.combustible = combustible
+
+    def mostrar_info(self):
+        print(f'Marca: {self.marca}, Modelo: {self.modelo}, Combustible: {self.combustible}')
+
+    def conducir(self, distancia):
+        
 
 
 
