@@ -102,15 +102,57 @@ class Mascota:
             self.energia = self.energia + 10
         print(f'Despues de comer {comida}, la energia de {self.nombre} es: {self.energia}')
 
+    def estado_animo(self):
+        if self.energia >= 70:
+            print(f'{self.nombre} está feliz!')
+        elif self.energia >= 30:
+            print(f'{self.nombre} está tranquilo!')
+        else:
+            print(f'{self.nombre} está cansado')
+
+
     def mostrar_estado(self):
         print(f'Soy {self.nombre} un {self.especie} y tengo {self.energia} de energia!')
 
             
 
 mi_mascota = Mascota('Otto', 'Gato', 100)
-mi_mascota.jugar(1)
-mi_mascota.comer('croquetas')
+mi_mascota.jugar(8)
+#mi_mascota.comer('croquetas')
 mi_mascota.mostrar_estado()
-        
+mi_mascota.estado_animo()        
 '''
+
+class Producto:
+
+    categoria_general = 'Bien de consumo'
+
+    def __init__(self, nombre, precio, stock):
+        self.nombre = nombre
+        self.precio = precio
+        self.stock = stock
+
+    def mostrar_info(self):
+        print(f'Producto: {self.nombre}, Precio:{self.precio}, Stock:{self.stock} unidades.')
+
+    
+    def vender(self, cantidad):
+        if self.stock >= cantidad:
+            self.stock = self.stock - cantidad
+        elif self.stock < cantidad:
+            print(f'No hay suficiente stock disponible')
+
+        print(f'Stock actual: {self.stock}')
+
+    def reponer(self, cantidad):
+        self.stock = self.stock + cantidad
+        print(f'Se repusieron {cantidad} unidades, Stock actual: {self.stock}')
+
+
+producto1 = Producto('Paila', 5.00, 34)
+producto1.vender(34)
+producto1.reponer(2)
+
+
+
 
