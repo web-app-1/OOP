@@ -202,7 +202,26 @@ class Auto:
         print(f'Marca: {self.marca}, Modelo: {self.modelo}, Combustible: {self.combustible}')
 
     def conducir(self, distancia):
-        
+        litros_necesarios = distancia / 10
+
+        if self.combustible < litros_necesarios:
+            print(f'Combustible insuficiente para recorrer {distancia}')
+        else:
+            self.combustible = self.combustible - litros_necesarios
+            print(f'Condujistes {distancia} km. Combustible actual {self.combustible}')
+
+
+    def recargar(self, litros):
+        self.combustible = self.combustible + litros
+        print(f'Se recargaron {litros} litros. Combustible acutal: {self.combustible}')
+
+
+auto1 = Auto("Toyota", "Corolla", 20)
+
+auto1.mostrar_info()
+auto1.conducir(50)
+auto1.recargar(10)
+auto1.conducir(200)
 
 
 
