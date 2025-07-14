@@ -29,3 +29,29 @@ class Cat:
 my_cat = Cat("Apollo", "Van Turco")
 my_cat.set_name("Pipi")
 print(my_cat.get_name())
+
+my_cat.set_name("Leonel")
+print(my_cat.get_name())
+
+print('--Coding session--')
+
+class Backpack:
+
+    def __init__(self):
+        self._items = []
+
+    def get_items(self):
+        return self._items
+    
+    
+    def set_items(self, new_items):
+        if isinstance(new_items, list):
+            self._items = new_items
+        else:
+            print('Please enter a valid list of items')
+
+bag1 = Backpack()
+bag1.set_items(['Book', 'Pencil', 'Eraser'])
+print(bag1.get_items())
+bag1.set_items(['Laptop', 'Battery', 'Pen'])
+print(bag1.get_items())
