@@ -187,7 +187,7 @@ plato1.ordenar()
 plato1.cambiar_disponibilidad(False)
 plato1.ordenar()
 
-'''
+
 
 class Auto:
 
@@ -223,5 +223,54 @@ auto1.conducir(50)
 auto1.recargar(10)
 auto1.conducir(200)
 
+'''
+
+#Properties
+
+class Producto:
+    
+    def __init__(self, nombre, precio, stock):
+        self._nombre = nombre
+        self._precio = precio
+        self._stock = stock
+
+    @property
+    def nombre(self):
+        return self._nombre
+    
+    @property
+    def precio(self):
+        return self._precio
+    
+    @property
+    def stock(self):
+        return self._stock
+    
+    def mostrar_info(self):
+        print(f'Nombre: {self._nombre}, Precio: {self._precio}, Stock: {self._stock}')
+
+
+    @precio.setter
+    def precio(self, nuevo_precio):
+        if nuevo_precio > 0:
+            self._precio = nuevo_precio
+        else:
+            print('El precio debe ser mayor que 0')
+
+    @stock.setter
+    def stock (self, nuevo_stock):
+        if isinstance(nuevo_stock, int) and nuevo_stock >= 0:
+            self._stock = nuevo_stock
+        else:
+            print('Ingrese una cantidad positiva')
+
+
+p1 = Producto("Camiseta", 20.5, 10)
+print(p1.precio)  
+p1.precio = 25    
+p1.precio = 5    
+p1.mostrar_info()
+    
+    
 
 
