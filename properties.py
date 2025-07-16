@@ -56,8 +56,8 @@ class Circle:
 
     color = property(get_color, set_color)
 
-circle1 = Circle('12', 'blue')
-circle1.radius = 21
+circle1 = Circle(12, 'blue')
+circle1.radius = 212
 print(circle1.get_radius())
 
 

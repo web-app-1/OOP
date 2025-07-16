@@ -1,3 +1,4 @@
+'''
 class Movie:
 
     def __init__(self, title, rating):
@@ -55,3 +56,60 @@ bag1.set_items(['Book', 'Pencil', 'Eraser'])
 print(bag1.get_items())
 bag1.set_items(['Laptop', 'Battery', 'Pen'])
 print(bag1.get_items())
+
+'''
+
+class Instrumento():
+
+    MARCA = ('Yamaha', 'Korg', 'Casio', 'Arturia')
+    tipo = 'cuerda'
+
+    def __init__(self, nombre, marca, costo):
+        self._nombre = nombre
+        self._marca = marca
+        self._costo = costo
+
+    #getters
+    def get_nombre(self):
+        return self._nombre
+    
+    def get_marca(self):
+        return self._marca
+    
+    def get_costo(self):
+        return self._costo
+    
+    #setters
+    def set_nombre(self, nuevo_nombre):
+        self._nombre = nuevo_nombre
+
+    def set_marca(self, nueva_marca):
+        if nueva_marca in Instrumento.MARCA:
+            self._marca = nueva_marca
+        else:
+            print('Marca no registrada')
+
+    def set_costo(self, nuevo_costo):
+        if isinstance(nuevo_costo, int):
+            self._costo = nuevo_costo
+        else:
+            print('Ingrese un numero valido')
+
+mi_instrumento = Instrumento('Piano', 'Yamaha', 1200)
+print(mi_instrumento.get_nombre())
+print(mi_instrumento.get_marca())
+print(mi_instrumento.get_costo())
+
+print('-----')
+
+mi_instrumento.set_nombre('Guitarra')
+print(mi_instrumento.get_nombre())
+mi_instrumento.set_marca('Korg')
+print(mi_instrumento.get_marca())
+mi_instrumento.set_costo(2500)
+print(mi_instrumento.get_costo())
+
+
+    
+    
+   
