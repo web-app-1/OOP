@@ -22,7 +22,7 @@ print(f'My dog is {my_dog.age} years old')
 print('One year later')
 my_dog.age += 1
 print(f'My dog is now {my_dog.age} years old')
-'''
+
 
 class Circle:
 
@@ -63,3 +63,6 @@ print(circle1.get_radius())
 
 print(circle1.get_color())
 circle1.set_color('red')
+
+'''
+

@@ -223,7 +223,7 @@ auto1.conducir(50)
 auto1.recargar(10)
 auto1.conducir(200)
 
-'''
+
 
 #Properties
 
@@ -271,6 +271,32 @@ p1.precio = 25
 p1.precio = 5    
 p1.mostrar_info()
     
+'''
+
+class Empleado:
+
+    def __init__(self, nombre, salario):
+        self._nombre = nombre
+        self._salario = salario
+
+    @property
+    def salario(self):
+        return self._salario
     
+    def mostrar_info(self):
+        print(f'Empleado: {self._nombre}, Salario: {self._salario}')
+    
+    @salario.setter
+    def salario(self, nuevo_salario):
+        if nuevo_salario > 0:
+            self._salario = nuevo_salario
+        else:
+            print('El salario debe ser mayor a 0')
 
 
+empleado1 = Empleado("Luis", 1500)
+empleado1.mostrar_info()            # Empleado: Luis, Salario: 1500
+
+empleado1.salario = -100            # ❌ Debe mostrar un mensaje de error
+empleado1.salario = 1800            # ✅
+empleado1.mostrar_info()            # Empleado: Luis, Salario: 1800
