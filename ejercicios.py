@@ -271,7 +271,7 @@ p1.precio = 25
 p1.precio = 5    
 p1.mostrar_info()
     
-'''
+
 
 class Empleado:
 
@@ -295,8 +295,56 @@ class Empleado:
 
 
 empleado1 = Empleado("Luis", 1500)
-empleado1.mostrar_info()            # Empleado: Luis, Salario: 1500
+empleado1.mostrar_info()            
 
-empleado1.salario = -100            # ❌ Debe mostrar un mensaje de error
-empleado1.salario = 1800            # ✅
-empleado1.mostrar_info()            # Empleado: Luis, Salario: 1800
+empleado1.salario = -100            
+empleado1.salario = 1800            
+empleado1.mostrar_info()            
+
+
+
+class CuentaBancaria:
+
+    TIPOS_CUENTA = ('Ahorros', 'Corriente')
+
+    def __init__(self, titular, saldo, tipo_cuenta):
+        self._titular = titular
+        self._saldo = saldo
+        self._tipo_cuenta = tipo_cuenta
+
+    @property
+    def saldo(self):
+        return self._saldo
+    
+    @property
+    def tipo_cuenta(self):
+        return self._tipo_cuenta
+    
+    @saldo.setter
+    def saldo (self, nuevo_saldo):
+        if isinstance(nuevo_saldo, int) and nuevo_saldo >= 0:
+            self._saldo = nuevo_saldo
+        else:
+            print('Valor incorrecto')
+        
+    @tipo_cuenta.setter
+    def tipo_cuenta(self, tipo):
+        if tipo in CuentaBancaria.TIPOS_CUENTA:
+            print(f'Su cuente es de {tipo}')
+            self._tipo_cuenta = tipo 
+        else:
+            print('Tipo de cuenta no valida')
+    
+    def mostrar_info(self):
+        print(f'Datos de la Cuenta -- Nombre: {self._titular}', {self.saldo}, {self.tipo_cuenta})
+
+
+cuenta = CuentaBancaria("Luis", 2500, "Ahorros")
+cuenta.mostrar_info()
+cuenta.saldo = -200 
+cuenta.tipo_cuenta = "VIP" 
+cuenta.saldo = 2900 
+cuenta.tipo_cuenta = "Corriente"
+cuenta.mostrar_info()
+
+'''
