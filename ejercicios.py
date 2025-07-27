@@ -440,7 +440,6 @@ auto1 = Auto('Ford', 'Mustang', motor1)
 
 auto1.mostrar_info_auto()
         
-'''
 
 #Practica 2 con Aggregation
 
@@ -470,3 +469,34 @@ class Celular:
 bateria1 = Bateria('3000 mah', 'Li-Ion')
 celular1 = Celular('Samosongo', 'UltraPEP88', bateria1)
 celular1.mostrar_info_celular()    
+
+
+'''
+
+#Practica 3 con Aggregation
+
+class Procesador:
+    
+    def __init__(self, marca, velocidad):
+        self._marca = marca 
+        self._velocidad = velocidad
+
+    def mostrar_info(self):
+        print(f'Detalles del Procesador: Marca: {self._marca}. Velocidad: {self._velocidad}')
+
+
+class Computadora:
+
+    def __init__(self, modelo, ram, procesador):
+        self._modelo = modelo
+        self._ram = ram
+        self._procesador = procesador
+
+    def informacion_general(self):
+        print(f'Informacion de la PC: Modelo: {self._modelo}. Ram Total: {self._ram}')
+        self._procesador.mostrar_info()
+
+proc1 = Procesador('AMD Threadripper', 5.9)
+
+pc1 = Computadora('LXC1', 256, proc1)
+pc1.informacion_general()
