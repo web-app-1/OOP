@@ -347,4 +347,126 @@ cuenta.saldo = 2900
 cuenta.tipo_cuenta = "Corriente"
 cuenta.mostrar_info()
 
+
+
+#practica con @properties
+
+class Cuenta:
+
+    MONEDA_LEGAL = ('USD','EUR', 'PEN')
+
+    def __init__(self, titular, saldo, moneda):
+        self._titular = titular
+        self._saldo = saldo
+        self._moneda = moneda
+
+    @property
+    def saldo(self):
+        return self._saldo
+    
+    @saldo.setter
+    def saldo(self, nuevo_saldo):
+        if nuevo_saldo < 0:
+            print('El saldo no puede ser negativo')
+        else:
+            self._saldo = nuevo_saldo
+            print(f'Nuevo saldo: {self._saldo}')
+
+    @property
+    def moneda(self):
+        return self._moneda
+    
+    @moneda.setter
+    def moneda(self, nueva_moneda):
+        if nueva_moneda in Cuenta.MONEDA_LEGAL:
+            self._moneda = nueva_moneda
+        else:
+            print('Moneda invalida')
+
+    
+    def mostrar_info(self):
+        print(f'Detalle: Nombre: {self._titular}, Monto Actual:{self._saldo}, Tipo:{self._moneda}')
+
+
+cuenta1 = Cuenta('Luis', 2123, 'USD')
+
+cuenta1.mostrar_info()
+cuenta1.saldo = 456436
+cuenta1.saldo = -90
+
+
+
+#Practica 1 con Aggregation
+
+class Motor:
+    
+    def __init__(self, combustible, fuerza):
+        self._combustible = combustible
+        self._fuerza = fuerza
+
+    @property
+    def combustible(self):
+        return self._combustible
+    
+    @property
+    def fuerza(self):
+        return self._fuerza
+    
+    def mostrar_info_motor(self):
+        print(f'Detalles del motor: Tipo de Combustible:{self._combustible} | Fuerza Total: {self._fuerza}')
+    
+
+class Auto:
+    def __init__(self, marca, modelo, motor):
+        self._marca = marca
+        self._modelo = modelo
+        self._motor = motor
+
+    @property
+    def marca(self):
+        return self._marca
+    
+    @property                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    def modelo(self):
+        return self._modelo
+    
+    
+    def mostrar_info_auto(self):
+        print(f'Marca: {self._marca} | Modelo: {self._modelo}')
+        self._motor.mostrar_info_motor()
+    
+motor1 = Motor('Gasolina', 456)
+auto1 = Auto('Ford', 'Mustang', motor1)
+
+auto1.mostrar_info_auto()
+        
 '''
+
+#Practica 2 con Aggregation
+
+class Bateria:
+
+    def __init__(self, capacidad, tipo):
+        self._capacidad = capacidad
+        self._tipo = tipo
+
+    
+    def mostrar_info_bateria(self):
+        print(f'Detalles de la bateria: Capacidad: {self._capacidad} | Tipo: {self._tipo}')
+    
+
+class Celular:
+
+    def __init__(self, marca, modelo, bateria):
+        self._marca = marca
+        self._modelo = modelo
+        self._bateria = bateria
+
+    def mostrar_info_celular(self):
+        print(f'Detalles del Celular: Marca: {self._marca} | Modelo: {self._modelo}')
+        self._bateria.mostrar_info_bateria()
+
+
+bateria1 = Bateria('3000 mah', 'Li-Ion')
+celular1 = Celular('Samosongo', 'UltraPEP88', bateria1)
+celular1.mostrar_info_celular()    
