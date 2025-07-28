@@ -471,7 +471,7 @@ celular1 = Celular('Samosongo', 'UltraPEP88', bateria1)
 celular1.mostrar_info_celular()    
 
 
-'''
+
 
 #Practica 3 con Aggregation
 
@@ -500,3 +500,35 @@ proc1 = Procesador('AMD Threadripper', 5.9)
 
 pc1 = Computadora('LXC1', 256, proc1)
 pc1.informacion_general()
+
+'''
+
+#Practica 4 con Aggregation
+
+class Pantalla:
+    
+    def __init__(self, tamano, resolucion):
+        self._tamano = tamano
+        self._resolucion = resolucion
+
+    def mostrar_info_pantalla(self):
+        return f'Informacion de la pantalla: Tamano: {self._tamano} | Resolucion: {self._resolucion}'
+    
+
+class Televisor:
+
+    def __init__(self, marca, modelo, pantalla):
+        self._marca = marca
+        self._modelo = modelo
+        self.pantalla = pantalla
+
+    def mostrar_info_televisor(self):
+        print(f'Informacion del Televisor: Marca: {self._marca} | Modelo: {self._modelo}')
+        print(self.pantalla.mostrar_info_pantalla())
+
+pantalla1 = Pantalla(27, '2560 x 1440')
+tele1 = Televisor('LG','CASD-C',pantalla1)
+tele1.mostrar_info_televisor()
+datos = tele1.pantalla.mostrar_info_pantalla()
+
+
