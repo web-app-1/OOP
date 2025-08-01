@@ -501,7 +501,7 @@ proc1 = Procesador('AMD Threadripper', 5.9)
 pc1 = Computadora('LXC1', 256, proc1)
 pc1.informacion_general()
 
-'''
+
 
 #Practica 4 con Aggregation
 
@@ -532,3 +532,108 @@ tele1.mostrar_info_televisor()
 datos = tele1.pantalla.mostrar_info_pantalla()
 
 
+
+
+#Practica 5 con Aggregation
+
+class Editorial:
+    
+    def __init__(self, nombre, pais):
+        self._nombre = nombre
+        self._pais = pais
+
+    def mostrar_info_editorial(self):
+        print(f'Detalles de la Editorial: Nombre: {self._nombre} | Pais: {self._pais}')
+
+
+class Libro:
+
+    def __init__(self, titulo, autor, editorial):
+        self._titulo = titulo
+        self._autor = autor
+        self._editorial = editorial
+
+    def mostrar_info_libro(self):
+        print(f'Informacion del Libro: {self._titulo} | Autor: {self._autor}')
+        self._editorial.mostrar_info_editorial()
+
+
+editorial1 = Editorial('Oceano', 'Argentina')
+libro1 = Libro('La Divina Comedia','Dante Alighieri', editorial1)
+libro1.mostrar_info_libro()
+
+
+
+#Practica 6 con Aggregation
+
+class DiscoDuro:
+
+    TIPO_DISCO = ('HDD', 'SSD', 'NVME')
+
+    def __init__(self, capacidad, tipo):
+        self._capacidad = capacidad
+        self._tipo = tipo
+
+    @property
+    def tipo(self):
+        return self._tipo
+    
+    @tipo.setter
+    def tipo(self, tipo):
+        if tipo not in DiscoDuro.TIPO_DISCO:
+            self._tipo = 'Disco Invalido'
+        else:
+            self._tipo = tipo
+            
+
+disco1 = DiscoDuro(150, 'HDD')
+disco1.tipo = 'cc'
+
+
+class Computadora:
+    
+    def __init__(self, modelo, disco):
+        self._modelo = modelo
+        self._disco = disco
+
+    def mostrar_info(self):
+        print(f'Detalle de la computadora: Modelo: {self._modelo} | Disco: {self._disco.tipo}')
+
+
+computadora1 = Computadora('CloneZXC', disco1)
+computadora1.mostrar_info()
+
+
+'''
+
+#Practica 7 con Aggregation
+
+class Curso:
+    
+    def __init__(self, nombre, creditos):
+        self._nombre = nombre
+        self._creditos = creditos
+
+    def __str__(self):
+        return f'{self._nombre} ({self._creditos} créditos)'
+
+
+class Profesor:
+
+    def __init__(self, nombre, cursos):
+        self._nombre = nombre
+        self._cursos = cursos
+
+    def mostrar_cursos(self):
+        print(f'Cursos del Profesor: {self._cursos}')
+        for curso in self._cursos:
+            print(curso)
+
+
+curso1 = Curso('Python', 30)
+curso2 = Curso('Django', 40)
+curso3 = Curso('SQL', 10)
+
+profe = Profesor('Luis', cursos=[curso1, curso2, curso3])
+
+profe.mostrar_cursos()
