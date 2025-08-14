@@ -22,7 +22,7 @@ class Player:
     def __init__(self, die, is_computer=False):
         self._die = die
         self._is_computer = is_computer
-        self._counter = 10
+        self._counter = 10 # --porque este atributo no esta como un parametro?
 
     @property
     def die(self):
