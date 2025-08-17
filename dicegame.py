@@ -22,7 +22,7 @@ class Player:
     def __init__(self, die, is_computer=False):
         self._die = die
         self._is_computer = is_computer
-        self._counter = 10 # --porque este atributo no esta como un parametro?
+        self._counter = 10 # --porque este atributo no esta como un parametro?: Porque este es el valor por defecto. No es necesario pasarlo como un argumento cada vez que se crea un objeto, porque la clase ya sabe que valor usar si no se le dice lo contrario. Esto es muy util cuando un atributo siempre debe empezar con el mismo valor.
 
     @property
     def die(self):
